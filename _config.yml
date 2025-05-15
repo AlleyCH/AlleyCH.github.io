@@ -33,6 +33,13 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+  
+feed:
+  hide: false     # change to true to hide the RSS feed in the footer
+  path: # blank (default) uses feed.xml
+  categories:
+    - gnome
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
