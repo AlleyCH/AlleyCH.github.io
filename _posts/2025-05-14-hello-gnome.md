@@ -4,6 +4,7 @@ date: 2025-05-14T15:34:30-04:00
 categories:
   - blog
 tags:
+  - Gnome
   - Vala
   - First post
 ---
