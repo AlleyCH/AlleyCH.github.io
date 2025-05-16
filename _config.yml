@@ -64,7 +64,7 @@ feed:
 author:
   name   : "Alley Chaggar"
   avatar : "/assets/images/pfp.png"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Software developer trying to make an impact through open source"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
