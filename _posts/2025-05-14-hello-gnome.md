@@ -1,6 +1,6 @@
 ---
 title: "Hi GSoC and GNOME"
-date: 2025-05-14T15:34:30-04:00
+date: 2025-05-16T15:34:30-04:00
 categories:
   - gnome
 tags:
@@ -19,8 +19,9 @@ My GSoC project is about improving how Vala handles JSON, XML, and YAML. Right n
 
 I'll also be diving into some compiler design topics and exploring Vala projects that already use these formats, to better understand current pain points and use cases.
 
-***🙏 Thanks***
+***Thanks 🙏***
 
-Also, big thanks to @Felipe Borges for maintaining Planet GNOME, and to my mentor Lorenz for guiding me through this exciting project!
+Also, big thanks to [Felipe Borges][Felipe-Borges] for maintaining Planet GNOME, and to my mentor [Lorenz Wildberg][Lorenz-Wildberg], who will be mentoring me on this project. 💙
 
-Looking forward to learning, building, and sharing more with the GNOME community. 💙
+[Felipe-Borges]: https://feborg.es/
+[Lorenz-Wildberg]: https://gitlab.gnome.org/lwildberg
