@@ -1,6 +1,6 @@
 ---
 title: "Compiler Knowledge"
-date: 2025-06-05T02:50:00-04:00
+date: 2025-06-04T010:00:00-04:00
 categories:
   - gnome
 tags:
@@ -10,14 +10,15 @@ tags:
 
 # Intro
 
-I apologize that I'm a little late posting my blog, but over the past two weeks, I’ve been diving into the Vala compiler and exploring how JSON (de)serialization could be integrated. My mentor, Lorenz, and I agreed that focusing on JSON is a solid entry point for now.
+I apologize that I'm a little late updating my blog, but over the past two weeks, I’ve been diving into Vala's compiler and exploring how JSON (de)serialization could be integrated. My mentor, Lorenz, and I agreed that focusing on JSON is a good beginning.
 
 # Understanding the Vala Compiler
 
 Learning the steps it takes to go from Vala code to C code is absolutely fascinating.
 
 Vala's Compiler 101
-* The first step in the compiler is lexical analysis. This is handled by [valascanner.vala][valascanner.vala], where your Vala code gets tokenized, which breaks up your code into chunks called tokens that are easier for the compiler to understand.
+* The first step in the compiler is the lexical analysis. This is handled by [valascanner.vala][valascanner.vala], where your Vala code gets tokenized, which breaks up your code into chunks called tokens that are easier for the compiler to understand.
+
   <pre><code> switch (begin[0]) {
 		case 'f':
 			if (matches (begin, "for")) return TokenType.FOR;
@@ -26,9 +27,9 @@ Vala's Compiler 101
 			if (matches (begin, "get")) return TokenType.GET;
 			break;
   </pre></code>
-  The code above is a snippet of the scanner, it’s responsible for recognizing specific keywords like for or get and returning the appropriate token type.
+  The code above is a snippet of Vala's scanner, it's responsible for recognizing specific keywords like 'for' and 'get' and returning the appropriate token type.
 
-* Next is syntax analysis and the creation of the abstract syntax tree, managed by [valaparser.vala][valaparser.vala], which checks if your code structure is correct, for example, if that pesky '}' is missing. 
+* Next is syntax analysis and the creation of the abstract syntax tree (AST). In Vala, it's managed by [valaparser.vala][valaparser.vala], which checks if your code structure is correct, for example, if that pesky '}' is missing. 
 
   <pre><code> inline bool expect (TokenType type) throws ParseError {
   	if (accept (type)) {
@@ -51,9 +52,9 @@ Vala's Compiler 101
   	}
   }
    </pre></code>
-  This is a snippet of the parser and it tries to accept a specific token type, like again that '}'. If it's there, it continues parsing, if not it throws a syntax error.
+  This is a snippet of Vala's parser, it tries to accept a specific token type, like again that '}'. If '}' is there, it continues parsing. Else if not, it throws a syntax error.
 
-* Then comes semantic analysis, the “meat and logic,” as I like to call it. This happens in [valasemanticanalyzer.vala][valasemanticanalyzer.vala], where the compiler checks if things make sense, do the types match? Are you using the correct number of parameters?
+* Then comes semantic analysis, the “meat and logic,” as I like to call it. This happens in [valasemanticanalyzer.vala][valasemanticanalyzer.vala], where the compiler checks if things make sense. Do the types match? Are you using the correct number of parameters?
 
   <pre><code> public bool is_in_constructor () {
 		unowned Symbol? sym = current_symbol;
@@ -66,10 +67,9 @@ Vala's Compiler 101
 		return false;
 	}
   </pre></code>
+  This code is a snippet of Vala's semantic analyzer, which helps the compiler understand if the current code is a constructor. Starting from the current symbol, which represents where the compiler is in the code, it then moves through its parent symbols. If it finds a parent symbol that is a constructor, it returns true. Else if the parent symbol is null, it returns false.
 
-  this code that is a snippet of the semantic analzer helps the compiler understand if the current code is being analyzed within a constructor. It works by starting from the current symbol, which represents where the compiler is in the code and then moves up through its parent symbols. If it finds a parent symbol that is a constructor, it returns true, if it reaches the top without finding one, it returns false.
-
-* After that, the flow analysis phase, located in [valaflowanalyzer.vala][valaflowanalyzer.vala], analyzes the execution order of your code. It figures out how control flows through the program, which is useful for things like variable initialization checking and unreachable code detection.
+* After that, the flow analysis phase, located in [valaflowanalyzer.vala][valaflowanalyzer.vala], analyzes the execution order of the code. It figures out how control flows through the program, which is useful for things like variable initialization and unreachable code.
 
   <pre><code> public override void visit_lambda_expression (LambdaExpression le) {
   	var old_current_block = current_block;
@@ -86,13 +86,13 @@ Vala's Compiler 101
   	}
   </pre></code>
 
-  The a snippet of the flow analyzer and ensures that control flow like unreachable code or jump statements is properly analyzed within the lambda expression.
+  The snippet of Vala's flow analyzer ensures that control flow, like unreachable code or jump statements, is properly analyzed within the lambda expression.
 
-* Now we want to convert the Vala code into C code using a variety of Vala files in the directories [ccode][ccode] and [codegen][codegen].
+* After all that, we now want to convert the Vala code into C code using a variety of Vala files in the directories [ccode][ccode] and [codegen][codegen].
 
-All of these classes inherit from [valacodevisitor.vala][valacodevisitor.vala], which is basically the mother of classes that provides the 'visit_*' methods that allow each phase in the compiler to walk the source code tree.
+All of these classes inherit from [valacodevisitor.vala][valacodevisitor.vala], which is basically the mother of classes that provides the `visit_*` methods that allow each phase in the compiler to walk the source code tree.
 
-I know this brief isn't all of what there is to understand about the compiler, but it's a start. Also, let’s take a moment to appreciate everyone who’s contributed to Vala’s compiler design, it’s truly an art 🎨
+I know this brief isn't all of what there is to understand about the compiler, but it's a start. Also, let’s take a moment to appreciate everyone who has contributed to Vala’s compiler design, it’s truly an art 🎨
 
 
 # The Coding Period Begins!!!
