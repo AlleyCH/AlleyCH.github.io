@@ -1,6 +1,6 @@
 ---
 title: "Compiler Knowledge"
-date: 2025-06-04T010:00:00-04:00
+date: 2025-06-04T10:25:00-04:00
 categories:
   - gnome
 tags:
