@@ -19,19 +19,21 @@ Learning the steps it takes to go from Vala code to C code is absolutely fascina
 Vala's Compiler 101
 * The first step in the compiler is the lexical analysis. This is handled by [valascanner.vala][valascanner.vala], where your Vala code gets tokenized, which breaks up your code into chunks called tokens that are easier for the compiler to understand.
 
-  <pre><code> switch (begin[0]) {
+ ``` vala
+switch (begin[0]) {
 		case 'f':
 			if (matches (begin, "for")) return TokenType.FOR;
 			break;
 		case 'g':
 			if (matches (begin, "get")) return TokenType.GET;
 			break;
-  </pre></code>
+  ``` 
   The code above is a snippet of Vala's scanner, it's responsible for recognizing specific keywords like 'for' and 'get' and returning the appropriate token type.
 
 * Next is syntax analysis and the creation of the abstract syntax tree (AST). In Vala, it's managed by [valaparser.vala][valaparser.vala], which checks if your code structure is correct, for example, if that pesky '}' is missing. 
 
-  <pre><code> inline bool expect (TokenType type) throws ParseError {
+  ``` vala
+  inline bool expect (TokenType type) throws ParseError {
   	if (accept (type)) {
   		return true;
   	}
@@ -51,12 +53,13 @@ Vala's Compiler 101
   		throw new ParseError.SYNTAX ("expected %s", type.to_string ());
   	}
   }
-   </pre></code>
+    ```
   This is a snippet of Vala's parser, it tries to accept a specific token type, like again that '}'. If '}' is there, it continues parsing. Else if not, it throws a syntax error.
 
 * Then comes semantic analysis, the “meat and logic,” as I like to call it. This happens in [valasemanticanalyzer.vala][valasemanticanalyzer.vala], where the compiler checks if things make sense. Do the types match? Are you using the correct number of parameters?
 
-  <pre><code> public bool is_in_constructor () {
+  ``` vala
+  public bool is_in_constructor () {
 		unowned Symbol? sym = current_symbol;
 		while (sym != null) {
 			if (sym is Constructor) {
@@ -66,12 +69,13 @@ Vala's Compiler 101
 		}
 		return false;
 	}
-  </pre></code>
+   ```
   This code is a snippet of Vala's semantic analyzer, which helps the compiler understand if the current code is a constructor. Starting from the current symbol, which represents where the compiler is in the code, it then moves through its parent symbols. If it finds a parent symbol that is a constructor, it returns true. Else if the parent symbol is null, it returns false.
 
 * After that, the flow analysis phase, located in [valaflowanalyzer.vala][valaflowanalyzer.vala], analyzes the execution order of the code. It figures out how control flows through the program, which is useful for things like variable initialization and unreachable code.
 
-  <pre><code> public override void visit_lambda_expression (LambdaExpression le) {
+  ``` vala
+  public override void visit_lambda_expression (LambdaExpression le) {
   	var old_current_block = current_block;
   	var old_unreachable_reported = unreachable_reported;
   	var old_jump_stack = jump_stack;
@@ -84,7 +88,7 @@ Vala's Compiler 101
   	unreachable_reported = old_unreachable_reported;
   	jump_stack = old_jump_stack;
   	}
-  </pre></code>
+  ``` 
 
   The snippet of Vala's flow analyzer ensures that control flow, like unreachable code or jump statements, is properly analyzed within the lambda expression.
 
