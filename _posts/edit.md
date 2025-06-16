@@ -17,7 +17,7 @@ I wanna talk a little about the basics of the compiler again, but this time, cat
 
 In my past blog, I briefly mentioned the directories [codegen] and [ccode] being part of the codegen phase. This blog will be going more into depth about it  
 
-The codegen phase is where Valac turns your code into C, so than that C code can also get compiled, usually by gcc or another C compiler you installed. When dealing with this phase it's really beneficial to know and understand at least a little bit of C.
+The codegen takes the AST and outputs the C code tree, so that it can be generated to C code more easily, usually by GCC or another C compiler you installed. When dealing with this phase, it's really beneficial to know and understand at least a little bit of C.
 
 Using the command 'valac -c yourfilename.vala' you'd be able to see the C code that Valac generates. If you were to look into it, you'd see a bunch of temp variables. It can be a little overwhelming to see if you don't really know C. 
 
