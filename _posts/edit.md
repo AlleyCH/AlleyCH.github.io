@@ -16,7 +16,9 @@ In my past blog, I briefly mentioned the directories [codegen][codegen] and [cco
 
 # [ccode][ccode] Directory
 * Many of the files in the ccode directory are derived from CCodeNode, [valaccodenode.vala][valaccodenode.vala].
-The files in this directory are representing C Constructs. For example the [valaccodefunction.vala] file repersents a C code function. Regular C functions have function names, parameters, return types, and Bodies that add logic. And what this class is are the building blocks for building a function in C.
+The files in this directory are representing C Constructs. For example the [valaccodefunction.vala][valaccodefunction.vala] file repersents a C code function. Regular C functions have function names, parameters, return types, and Bodies that add logic. And what this class is are the building blocks for building a function in C.
+
+  <img src="https://logicmojo.com/assets/dist/new_pages/images/Cfunction3.png" width="200">
   
    ``` vala
      //...
@@ -60,7 +62,7 @@ Going back to the example of the ccodefunction, codegen will take a function nod
 This code snippet is from [valagobjectmodule.vala][valagobjectmodule.vala] and it's calling CCodeFunction (again from the valaccodefunction.vala).  What this would out put is something that looks like this in C:
 
   ``` C
-    void _vala_get_property (GObject *object, guint property_id, GValue *value, GParamSpec *pspec ) {
+    void _vala_get_property (GObject *object, guint property_id, GValue *value, GParamSpec *pspec) {
         
     }
   ```
@@ -76,10 +78,11 @@ Now you might ask why? Why separtate codegen and ccode
 # Jsonmodule
 I'm happy to say that I am making a lot of progress with the JSON module I mentioned last blog. The jsonmodule will follow very closly other modules in the codegen. Which means that it's the part that will be calling ccode methods to be able to 
 
-*********** ... Put some code I've done.
+*********** ... Put some code I've done. 
 
 
 [ccode]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/ccode?ref_type=heads
 [codegen]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/codegen?ref_type=heads
 [valaccodenode.vala]: https://gitlab.gnome.org/GNOME/vala/-/blob/main/ccode/valaccodenode.vala?ref_type=heads
 [valagobjectmodule.vala]: https://gitlab.gnome.org/GNOME/vala/-/blob/main/codegen/valagobjectmodule.vala?ref_type=heads
+[valaccodefunction.vala]: https://gitlab.gnome.org/GNOME/vala/-/blob/main/ccode/valaccodefunction.vala?ref_type=heads
