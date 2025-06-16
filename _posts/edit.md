@@ -16,7 +16,7 @@ In my past blog, I briefly mentioned the directories [codegen][codegen] and [cco
 
 # [ccode][ccode] Directory
 * Many of the files in the ccode directory are derived from CCodeNode, [valaccodenode.vala][valaccodenode.vala].
-The files in this directory are representing C Constructs. For example the [valaccodefunction.vala][valaccodefunction.vala] file repersents a C code function. Regular C functions have function names, parameters, return types, and bodies that add logic. What this class specifiaclly does is provide the building blocks for building a function in C.
+* The files in this directory represent C Constructs. For example, the [valaccodefunction.vala][valaccodefunction.vala] file represents a C code function. Regular C functions have function names, parameters, return types, and bodies that add logic. Essentially, what this class specifically does, is provide the building blocks for building a function in C.
 
   <img src="https://logicmojo.com/assets/dist/new_pages/images/Cfunction3.png" width="200">
   
@@ -38,12 +38,11 @@ The files in this directory are representing C Constructs. For example the [vala
    //...
    ```
    
-  
-This code snipet is part of the ccodefunction file and what it's doing is overriding the 'write' function that is originally from ccodenode. It's actually writing out the the C code. 
+This code snippet is part of the ccodefunction file, and what it's doing is overriding the 'write' function that is originally from ccodenode. It's actually writing out the C code. 
 
 # [codegen][codegen] Directory
-* The files in this directory are higher-level components responsible for taking the compiler’s internal representation such as usually the AST and transforming it into the C code model ccode objects.
-Going back to the example of the ccodefunction, codegen will take a function node from the abstract syntax tree (AST), and will create a new ccodefunction object. It then fills this object with information like the return type, function name, parameters, and body which are all derived from the AST. The the CCodeFunction.write() will generate the C code.
+* The files in this directory are higher-level components responsible for taking the compiler’s internal representation, such as the AST and transforming it into the C code model ccode objects.
+* Going back to the example of the ccodefunction, codegen will take a function node from the abstract syntax tree (AST), and will create a new ccodefunction object. It then fills this object with information like the return type, function name, parameters, and body which are all derived from the AST. Then the CCodeFunction.write() will generate the C code.
 
   ``` vala
   //...
@@ -59,7 +58,7 @@ Going back to the example of the ccodefunction, codegen will take a function nod
   //...
   ```
   
-This code snippet is from [valagobjectmodule.vala][valagobjectmodule.vala] and it's calling CCodeFunction (again from the valaccodefunction.vala).  What this would out put is something that looks like this in C:
+This code snippet is from [valagobjectmodule.vala][valagobjectmodule.vala] and it's calling CCodeFunction (again from the valaccodefunction.vala).  What this would output is something that looks like this in C:
 
   ``` C
     void _vala_get_property (GObject *object, guint property_id, GValue *value, GParamSpec *pspec) {
@@ -68,15 +67,14 @@ This code snippet is from [valagobjectmodule.vala][valagobjectmodule.vala] and i
   ```
 
 # Why do all this?
-
-Now you might ask why? Why separtate codegen and ccode
+Now you might ask why? Why separate codegen and ccode?
 
 * We split things into codegen and ccode to keep the compiler clean, readable, and maintainable. It prevents us from having to constantly write C code representations from scratch all the time. 
 * It also reinforces the idea of polymorphism and the ability that objects can behave differently depending on their subclass.
 * And it lets us do hidden generation by adding new helper functions, temporary variables, or inlined optimizations after the AST and before the C code.
 
 # Jsonmodule
-I'm happy to say that I am making a lot of progress with the JSON module I mentioned last blog. The jsonmodule will follow very closly other modules in the codegen. Which means that it's the part that will be calling ccode methods to be able to 
+I'm happy to say that I am making a lot of progress with the JSON module I mentioned last blog. The jsonmodule will follow very closely other modules in the codegen. Which means that it's the part that will be calling ccode methods to be able to 
 
 *********** ... Put some code I've done. 
 
