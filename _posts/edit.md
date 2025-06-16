@@ -15,7 +15,7 @@ In my past blog, I briefly mentioned the directories [codegen][codegen] and [cco
 
 
 # [ccode][ccode] Directory
-* many of the files in the ccode directory are derived from CCodeNode, [valaccodenode.vala][valaccodenode.vala].
+* Many of the files in the ccode directory are derived from CCodeNode, [valaccodenode.vala][valaccodenode.vala].
 The files in this directory are representing C Constructs. For example the [valaccodefunction.vala] file repersents a C code function. Regular C functions have function names, parameters, return types, and Bodies that add logic. And what this class is are the building blocks for building a function in C.
   
    ``` vala
@@ -66,6 +66,7 @@ This code snippet is from [valagobjectmodule.vala][valagobjectmodule.vala] and i
   ```
 
 # Why do all this?
+
 Now you might ask why? Why separtate codegen and ccode
 
 * We split things into codegen and ccode to keep the compiler clean, readable, and maintainable. It prevents us from having to constantly write C code representations from scratch all the time. 
@@ -80,5 +81,5 @@ I'm happy to say that I am making a lot of progress with the JSON module I menti
 
 [ccode]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/ccode?ref_type=heads
 [codegen]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/codegen?ref_type=heads
-[valaccodenode.vala]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/main/ccode/valaccodenode.vala?ref_type=heads
-[valagobjectmodule.vala]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/main/codegen/valagobjectmodule.vala?ref_type=heads
+[valaccodenode.vala]: https://gitlab.gnome.org/GNOME/vala/-/blob/main/ccode/valaccodenode.vala?ref_type=heads
+[valagobjectmodule.vala]: https://gitlab.gnome.org/GNOME/vala/-/blob/main/codegen/valagobjectmodule.vala?ref_type=heads
