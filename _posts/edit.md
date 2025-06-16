@@ -16,7 +16,7 @@ In my past blog, I briefly mentioned the directories [codegen][codegen] and [cco
 
 # [ccode][ccode] Directory
 * Many of the files in the ccode directory are derived from CCodeNode, [valaccodenode.vala][valaccodenode.vala].
-The files in this directory are representing C Constructs. For example the [valaccodefunction.vala][valaccodefunction.vala] file repersents a C code function. Regular C functions have function names, parameters, return types, and bodies that add logic. And what this class is are the building blocks for building a function in C.
+The files in this directory are representing C Constructs. For example the [valaccodefunction.vala][valaccodefunction.vala] file repersents a C code function. Regular C functions have function names, parameters, return types, and bodies that add logic. What this class specifiaclly does is provide the building blocks for building a function in C.
 
   <img src="https://logicmojo.com/assets/dist/new_pages/images/Cfunction3.png" width="200">
   
