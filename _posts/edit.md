@@ -65,7 +65,7 @@ This code snippet is from [valagobjectmodule.vala][valagobjectmodule.vala] and i
     }
   ```
 
-## Why do all this?
+# Why do all this?
 Now you might ask why? Why separtate codegen and ccode
 
 * We split things into codegen and ccode to keep the compiler clean, readable, and maintainable. It prevents us from having to constantly write C code representations from scratch all the time. 
