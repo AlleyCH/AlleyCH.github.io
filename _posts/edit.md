@@ -22,19 +22,17 @@ In my past blog, I briefly mentioned the directories [codegen][codegen] and [cco
   
    ``` vala
      //...
-    	public override void write (CCodeWriter writer) {
-    		writer.write_indent (line);
-    		if (CCodeModifiers.INTERNAL in modifiers) {
-    			writer.write_string (GNUC_INTERNAL);
-    		} else if (is_declaration && CCodeModifiers.EXTERN in modifiers) {
-    			writer.write_string ("VALA_EXTERN ");
-    		}
-    		if (!is_declaration && CCodeModifiers.NO_INLINE in modifiers) {
-    			writer.write_string (GNUC_NO_INLINE);
-    		}
-    		if (CCodeModifiers.STATIC in modifiers) {
-    			writer.write_string ("static ");
-    		}
+    	writer.write_string (return_type);
+		if (is_declaration) {
+			writer.write_string (" ");
+		} else {
+			writer.write_newline ();
+		}
+		writer.write_string (name);
+		writer.write_string (" (");
+		int param_pos_begin = (is_declaration ? return_type.char_count () + 1 : 0 ) + name.char_count () + 2;
+
+		bool has_args = (CCodeModifiers.PRINTF in modifiers || CCodeModifiers.SCANF in modifiers);
    //...
    ```
    
