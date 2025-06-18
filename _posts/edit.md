@@ -17,4 +17,12 @@ Using the command 'valac -c yourfilename.vala' you'd be able to see the C code t
 *** Explain how the directories are working together to gen the C code
 
 # The jsonmodule
+talk about the module and codegen
+
+
+
+# What I've learned so far
+I've learned quite a lot, but I still have so much more to learn and understand.
+
+I want to go over the stuff I've learned, having done this much up till now.
 
