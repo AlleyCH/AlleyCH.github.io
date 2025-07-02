@@ -1,6 +1,6 @@
 ---
 title: "Demystifying The Codegen Phase Part 2"
-date: 
+date: 2025-07-02T2:30:00-04:00
 categories:
   - 
 tags:
@@ -98,7 +98,7 @@ m mainly going off of C's _vala_main function when determining which C code I sh
 		json_gen_set_root.add_argument (new CCodeIdentifier ("node"));
 		//...
 ```
-The code snippet above is a work in progress method in the JsonModule that I created called 'generate_gclass_to_json' to generate serialization for GObject classes. I'm created a C code function and passing parameters throught it. and I'm filling the body with how I did the serializing. Instead of the function calls being created in _vala_main (by the user), they'll have their own function that will instantly get created by the module instead. 
+The code snippet above is a work in progress method in the JsonModule that I created called 'generate_gclass_to_json' to generate serialization for GObject classes. I'm creating a C code function and passing parameters throught it. I'm also filling the body with how the example code did the serializing in the first code snippet. Instead of the function calls being created in _vala_main (by the user), they'll have their own function that will instantly get created by the module instead. 
 
 ``` c
 static void _json_%s_serialize_myclass (GObject *gobject, GValue *value, GParamSpec *pspec)
@@ -109,6 +109,6 @@ static void _json_%s_serialize_myclass (GObject *gobject, GValue *value, GParamS
 	//...
 }
 ```
-As you can compare the difference with the origainl vala code and the compiler C code, it's take the vala code shape but it's in C code. 
+As you can compare the differences with the original Vala code and the compiler C code, it takes the Vala code shape but it's in C code. 
 
  [JsonModule]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/alley/json-glib-module/codegen/valajsonmodule.vala 
