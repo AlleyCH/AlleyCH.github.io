@@ -8,7 +8,7 @@ tags:
 ---
 
 # Intro
-Hello again, I'm here to update on my findings and knowledge about Vala. Last blog, I talked about the codegen phase, as intricate as it is, I'm finding some very helpful information that I want to share.
+Hello again, I'm here to update findings and knowledge about Vala. Last blog, I talked about the codegen phase, as intricate as it is, I'm finding some very helpful information that I want to share.
 
 # Looking at The Output C Code
 While doing the JSON module, I'm constantly looking at C code. Back and forth, back and forth, having more than 1 monitor is very helpful in times like these. At the beginning of GSoC I didn't know much of C, and that has definitely changed. I'm still not fluent in it, but I can finally read the code and can understand it without too much brain power. For the [JsonModule][JsonModule] I'm creating, I first looked at how users can currently (de)serialize JSON. I went scouting json-glib examples since then, and for now, I will be using json-glib. In the future, however, I'll look at other ways in which we can have JSON more streamlined in Vala whether that means growing away from json-glib or not.
