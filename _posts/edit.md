@@ -11,11 +11,11 @@ tags:
 Hello again, I'm here to update on my findings and knowledge about Vala. Last blog, I talked about the codegen phase, as intricate as it is, I'm finding some very helpful information that I want to share.
 
 # Looking at The Output C Code
-While doing the JSON module, I'm constantly looking at C code. Back and forth, back and forth, having more than 1 monitor is very helpful in times like this. At the beginning of GSoC I didn't know much of C, and that has deffinitly changed. I'm still not fluent in it, but I can finally read the code and can understand it with out too much brain power. For the [JsonModule][JsonModule] I'm creating, I first looked at how users can currently (de)serialize JSON. I went scouting json-glib examples since then, and for now, I will be using json-glib. In the future, however, I'll look at other ways in which we can have JSON more streamlined in Vala whether that means growing away from json-glib or not.
+While doing the JSON module, I'm constantly looking at C code. Back and forth, back and forth, having more than 1 monitor is very helpful in times like these. At the beginning of GSoC I didn't know much of C, and that has definitely changed. I'm still not fluent in it, but I can finally read the code and can understand it without too much brain power. For the [JsonModule][JsonModule] I'm creating, I first looked at how users can currently (de)serialize JSON. I went scouting json-glib examples since then, and for now, I will be using json-glib. In the future, however, I'll look at other ways in which we can have JSON more streamlined in Vala whether that means growing away from json-glib or not.
 
-Using the command 'valac -C yourfilename.vala', you'd be able to see the C code that Valac generates. If you were to look into it, you'd see a bunch of temp variables and C functions. It can be a little overwhelming to see if you don't know C. 
-
-When writing JSON normally with minimal customization, without what my module suggests. You would be writing it like
+Using the command 'valac -C yourfilename.vala', you'd be able to see the C code that Valac generates. If you were to look into it, you'd see a bunch of tempary variables and C functions. It can be a little overwhelming to see all this if you don't know C.
+<br></br>
+When writing JSON normally with minimal customization and without the JsonModule's support. You would be writing it like this:
 
    ``` vala
 Json.Node node = Json.gobject_serialize (person);
@@ -25,7 +25,9 @@ string result = gen.to_data (null);
 print ("%s\n", result); 
   ```
   
-This code is showing one way to serialize a GObject class using json-glib. The code below is the C code that Valac outputs for this example. Again, to be able to see this you have to use the -C command when running your vala code. 
+This code is showing one way to serialize a GObject class using json-glib. 
+<br></br>
+The code below is a snippet of C code that Valac outputs for this example. Again, to be able to see this you have to use the -C command when running your Vala code. 
 
    ``` c
 static void
@@ -59,8 +61,6 @@ _vala_main (void)
 ```
 
 You can see many tempary variables denoted by the names _tmp*_, but you can also see JsonNode being called, you can see Json's generator being called, you can even see json gobject serialize. All of this was in your Vala code, and now it's all in the C code having tempary variables equally them and to be successfully compiled to C code.
-
-*** Explain how the directories are working together to gen the C code
 
 # The jsonmodule
 If you may recall the Codegen is the clash of Vala code, but also writing to C code. The steps I'm taking for the [JsonModule][JsonModule] is looking at the example to (de)serialize then looking at how the example compiled to C. Since The whole purpose of my work is to write how the C should work. I
@@ -98,7 +98,7 @@ m mainly going off of C's _vala_main function when determining which C code I sh
 		json_gen_set_root.add_argument (new CCodeIdentifier ("node"));
 		//...
 ```
-The code snippet above is a method in the JsonModule that I created called "generate_gclass_to_json" to generate serialization for GObject classes. I'm created a C code function and passing parameters throught it. and I'm filling the body with how I did the serializing. Instead of the function calls being created in _vala_main (by the user), they'll have their own function that will instantly get created by the module instead. 
+The code snippet above is a work in progress method in the JsonModule that I created called 'generate_gclass_to_json' to generate serialization for GObject classes. I'm created a C code function and passing parameters throught it. and I'm filling the body with how I did the serializing. Instead of the function calls being created in _vala_main (by the user), they'll have their own function that will instantly get created by the module instead. 
 
 ``` c
 static void _json_%s_serialize_myclass (GObject *gobject, GValue *value, GParamSpec *pspec)
