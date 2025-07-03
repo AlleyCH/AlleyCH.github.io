@@ -2,7 +2,7 @@
 title: "Demystifying The Codegen Phase Part 2"
 date: 2025-07-02T3:30:00-04:00
 categories:
-  - 
+  - gnome
 tags:
   - Vala
 ---
