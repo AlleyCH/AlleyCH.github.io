@@ -1,6 +1,6 @@
 ---
 title: "Demystifying The Codegen Phase Part 2"
-date: 2025-07-02T2:30:00-04:00
+date: 2025-07-02T3:30:00-04:00
 categories:
   - 
 tags:
@@ -8,10 +8,12 @@ tags:
 ---
 
 # Intro
-Hello again, I'm here to update findings and knowledge about Vala. Last blog, I talked about the codegen phase, as intricate as it is, I'm finding some very helpful information that I want to share.
+Hello again, I'm here to update my findings and knowledge about Vala. Last blog, I talked about the codegen phase, as intricate as it is, I'm finding some very helpful information that I want to share.
 
 # Looking at The Outputted C Code
-While doing the JSON module, I'm constantly looking at C code. Back and forth, back and forth, having more than 1 monitor is very helpful in times like these. At the beginning of GSoC I didn't know much of C, and that has definitely changed. I'm still not fluent in it, but I can finally read the code and can understand it without too much brain power. For the [JsonModule][JsonModule] I'm creating, I first looked at how users can currently (de)serialize JSON. I went scouting json-glib examples since then, and for now, I will be using json-glib. In the future, however, I'll look at other ways in which we can have JSON more streamlined in Vala whether that means growing away from json-glib or not.
+While doing the JSON module, I'm constantly looking at C code. Back and forth, back and forth, having more than 1 monitor is very helpful in times like these. 
+<br></br>
+At the beginning of GSoC I didn't know much of C, and that has definitely changed. I'm still not fluent in it, but I can finally read the code and understand it without too much brain power. For the [JsonModule][JsonModule] I'm creating, I first looked at how users can currently (de)serialize JSON. I went scouting json-glib examples since then, and for now, I will be using json-glib. In the future, however, I'll look at other ways in which we can have JSON more streamlined in Vala whether that means growing away from json-glib or not.
 
 Using the command 'valac -C yourfilename.vala', you'll be able to see the C code that Valac generates. If you were to look into it, you'd see a bunch of tempary variables and C functions. It can be a little overwhelming to see all this if you don't know C.
 <br></br>
@@ -108,6 +110,6 @@ static void _json_%s_serialize_myclass (GObject *gobject, GValue *value, GParamS
 	//...
 }
 ```
-Comparing the differences with the original Vala code and the compiled code (C code), it takes the Vala code shape but it's in C code. 
+Comparing the differences with the original Vala code and the compiled code (C code), it takes the Vala code shape but it's written in C. 
 
 [JsonModule]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/alley/json-glib-module/codegen/valajsonmodule.vala 
