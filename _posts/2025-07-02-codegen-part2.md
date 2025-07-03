@@ -30,7 +30,7 @@ print ("%s\n", result);
   ```
   
 This code is showing one way to serialize a GObject class using json-glib. 
-<br></br>
+<br>
 The code below is a snippet of C code that Valac outputs for this example. Again, to be able to see this, you have to use the -C command when running your Vala code. 
 
    ``` c
