@@ -1,11 +1,53 @@
+---
+title: "Demystifying The Codegen Phase Part 2"
+date: 2025-07-17T3:30:00-04:00
+categories:
+  - gnome
+tags:
+  - Vala
+---
+
 # Intro
 Midterms are this week for GSoC, which means it's been half of my time in GSoC already. It's been an incredible experience so far, and I know it's gonna continue to be great. 
 
-# YAML and XML
-I've started to look into YAML and XML (mainly YAML). I've looked into main different libraries dealing with YAML. Libraries such as [pluie-yaml][pluie-yaml], yaml-glib, glib-yaml, and libyaml. Just like JSON, I used a GObject-integrated JSON library named json-glib. Now, to my understanding and research, there is no well maintained yaml library that intergrates GObject or Glib. I did mention [pluie-yaml][pluie-yaml], but this library isn't a C library. It's a shared Vala library. 
+# API vs ABI
+
+What is the difference between an application programming interface vs an application binary interface? In the beginning I this question tripped me out and confused me because I wasn't familiar with ABI's. First lets understand what they are separtly and then compare them.
+
+## API
+Personally I think Understanding API's is more popular and well known. An API is usually, at a high level, is defined by two software components or computers communicating with each other using a set of definitions and protocols. This defination is pretty vague and expansive. but when dealing with code level api's I like to understand it by APIs are existing entites in the source code that have functions, constants, structures, etc. You can think of it as when you write source code, you access the library through an API. For example, when you write '''print("hello word")''' in python, print() is part of Python’s standard library API. In that sense, APIs feel a lot like the Facade Design Pattern—they give you a simplified, organized way to access more complex functionality behind the scenes.
+
+## ABI
+ABI on the other hand is very similar but instead of the compiler time, they are excuted during run time. Which means when your program is done compiling and the machine is actually running your excutable. It's low-level on how compiled code interacts, particularly in the context of operating systems and libraries. It has protocals and standards for how the OS handles your program such as, storage, memory, hardware, and about how your compiled binary works with other compiled components. 
 
 
-# What I've learned so far
-I've learned quite a lot, but I still have so much more to learn and understand.
+# YAML
+I've started to look into YAML and XML (mainly YAML). I've looked into main different libraries dealing with YAML. Libraries such as [pluie-yaml][pluie-yaml], [libyaml-glib][libyaml-glib], [glib-yaml][glib-yaml], and [libyaml][libyaml]. Just like JSON, I used a GObject-integrated JSON library named [json-glib][json-glib]. Now, to my understanding and research, there are no well-maintained YAML libraries that integrates GObject or Glib. 
 
-I want to go over the stuff I've learned, having done this much up till now.
+## pluie-yaml
+
+I did mention [pluie-yaml][pluie-yaml], but this library isn't a C library. It's a shared Vala library. The codegen needs C libraries because the [.vapi][.vapi] files connect Vala source to a C ABI, not Vala ABI. Pure Vala libraries don’t have a standalone C ABI and therfore can't be used during compilation.
+
+## libyaml-glib 
+
+[libyaml-glib][libyaml-glib] is a GLib binding of libyaml, plus a GObject builder that understands YAML. And just like pluie, it's not a C library. It's writen in Vala, so it won't have a C ABI.
+
+## glib-yaml
+
+[glib-yaml][glib-yaml] is a GLib-based YAML parser written in C. It passes the lanuage check but it doesn't pass the maintance check since it's been years of no updates or commits. It's also only a parser, it doesn't serialize or emit YAML, so if it was well maintained I'd still need to emit YAML either manually or find a library that does. 
+
+<br>
+
+## libyaml
+
+and lastly [libyaml][libyaml] is the C library that I will be using for parsing and emitting YAML. Vala already has a VAPI file binding it, [yaml-0.1.vapi][yaml-0.1.vapi]. However there is no GObject or GLib intergration unlike json-glib, but that should be fine.
+
+
+
+[.vapi]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/vapi?ref_type=heads
+[json-glib]: https://gitlab.gnome.org/GNOME/json-glib/-/tree/main?ref_type=heads
+[pluie-yaml]: https://github.com/pluie-org/lib-yaml
+[yaml-glib]: https://github.com/rainwoodman/libyaml-glib
+[libyaml]: https://github.com/yaml/libyaml/tree/master
+[glib-yaml]: https://github.com/jimmuhk/glib-yaml
+[yaml-0.1.vapi]: https://gitlab.gnome.org/GNOME/vala-extra-vapis/-/blob/master/yaml-0.1.vapi?ref_type=heads
