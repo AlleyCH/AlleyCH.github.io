@@ -30,20 +30,19 @@ I've started to look into YAML and XML (mainly YAML). I've looked into many diff
 
 ## Pluie yaml
 
-I did mention [pluie-yaml][pluie-yaml], but this library isn't a C library. It's a shared Vala library. The codegen needs C libraries because the [.vapi][.vapi] files connect Vala source to a C ABI, not a Vala ABI. Pure Vala libraries don’t have a standalone C ABI and therefore can't be used during compilation.
+I did mention [pluie-yaml][pluie-yaml], but this library isn't a C library. It's a shared Vala library. The codegen can use pure Vala libraries however, this libray is not maintained. The last active activity was 7 years ago.
 
 ## Libyaml glib 
 
-[libyaml-glib][libyaml-glib] is a GLib binding of libyaml, plus a GObject builder that understands YAML. And just like pluie, it's not a C library. It's written in Vala, so it won't have a C ABI.
+[libyaml-glib][libyaml-glib] is a GLib binding of libyaml, plus a GObject builder that understands YAML. And just like pluie, it's not a C library. It's written in Vala, however, again it's not well maintained, with activity even longer 9 years ago.
 
 ## Glib yaml
 
-[glib-yaml][glib-yaml] is a GLib-based YAML parser written in C. It passes the lanuage check, but it doesn't pass the maintance check since it's been years of no updates or commit. It's also only a parser, and it doesn't serialize or emit YAML, so if it was well maintained, I'd still need to emit YAML either manually or find a library that does so. 
+[glib-yaml][glib-yaml] is a GLib-based YAML parser written in C. It again just like the other libraries doesn't pass the maintenance check since it's been years of no update or commit going back to 13 years ago. It's also only a parser, and it doesn't serialize or emit YAML, so if it were well maintained, I'd still need to emit YAML either manually or find a library that does so. 
 
 ## Libyaml
 
 In conclusion, [libyaml][libyaml] is the C library that I will be using for parsing and emitting YAML. Vala already has a VAPI file binding it, [yaml-0.1.vapi][yaml-0.1.vapi]. However, there is no GObject or GLib integration, unlike json-glib, but that should be fine.
-
 
 
 [.vapi]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/vapi?ref_type=heads
