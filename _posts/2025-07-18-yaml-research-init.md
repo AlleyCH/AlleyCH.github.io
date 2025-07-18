@@ -1,6 +1,6 @@
 ---
 title: "YAML research"
-date: 2025-07-18T24:05:00-04:00
+date: 2025-07-18T01:00:00-04:00
 categories:
   - gnome
 tags:
