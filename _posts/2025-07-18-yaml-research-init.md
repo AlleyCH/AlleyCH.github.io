@@ -17,7 +17,7 @@ What is the difference between an application programming interface versus an ap
 
 ## API
 
-Personally, I think Understanding API's is more popular and well known. An API is usually, at a high level, defined by two software components or computers communicating with each other using a set of definitions and protocols. This definition I always thought was pretty vague and expansive. When dealing with code-level APIs, I like to understand it as APIs are existing entities in the user code (source code) that have functions, constants, structures, etc. You can think of it as when you write code, you access libraries through an API. For example, when you write ```print('hello world')``` in Python, ```print()``` is a part of Python’s standard library API.
+Personally, I think the understanding of APIs is more popular and well-known than ABIs. An API is usually, at a high level, defined by two software components or computers communicating with each other using a set of definitions and protocols. This definition I always thought was pretty vague and expansive. When dealing with code-level APIs, I like to understand it as APIs are existing entities in the user code (source code) that have functions, constants, structures, etc. You can think of it as when you write code, you access libraries through an API. For example, when you write ```print('hello world')``` in Python, ```print()``` is a part of Python’s standard library API.
 
 ## ABI
 
