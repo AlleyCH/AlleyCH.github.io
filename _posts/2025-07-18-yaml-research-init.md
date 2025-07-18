@@ -13,7 +13,7 @@ Hi everyone, sorry for the late post. Midterms are this week for GSoC, which mea
 
 # API vs. ABI
 
-What is the difference between an application programming interface versus an application binary interface? In the beginning, this question tripped me out and confused me, because I wasn't familiar with ABIs. Understanding what an ABI is has helped me decide which libraries I should consider using in the codegen phase. When talking about Vala, Vala is designed to use a C ABI. First, let's understand what they are separately and then compare them.
+What is the difference between an application programming interface versus an application binary interface? In the beginning, this question tripped me out and confused me, because I wasn't familiar with ABIs. Understanding what an ABI is has helped me decide which libraries I should consider using in the codegen phase. When talking about Vala, Vala is designed to use a C ABI. First, let's understand what an API and ABI are separately and then compare them.
 
 ## API
 
