@@ -1,5 +1,5 @@
 ---
-title: "YAML research"
+title: "YAML Research"
 date: 2025-07-18T01:00:00-04:00
 categories:
   - gnome
@@ -9,7 +9,7 @@ tags:
 
 # Intro
 
-Hi everyone, sorry for the late post. Midterms are this week for GSoC, which means I'm halfway through GSoC. It's been an incredible experience so far, and I know it's goning to continue to be great.
+Hi everyone, sorry for the late post. Midterms are this week for GSoC, which means I'm halfway through GSoC. It's been an incredible experience so far, and I know it's going to continue to be great.
 
 # API vs. ABI
 
