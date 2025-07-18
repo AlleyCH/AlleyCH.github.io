@@ -41,13 +41,13 @@ I mentioned [pluie-yaml][pluie-yaml], but this library isn't a C library like [j
 
 ## Libyaml
 
-In conclusion, [libyaml-glib][libyaml-glib] is the C library that I will be using for parsing and emitting YAML. It has a C ABI, and it's the most well-maintained out of all of the other libraries. Vala already has a VAPI file binding it, [yaml-0.1.vapi][yaml-0.1.vapi]. However, there is no GObject or GLib integration, unlike json-glib, but that should be fine.
+In conclusion, [libyaml][libyaml] is the C library that I will be using for parsing and emitting YAML. It has a C ABI, and it's the most well-maintained out of all of the other libraries. Vala already has a VAPI file binding it, [yaml-0.1.vapi][yaml-0.1.vapi]. However, there is no GObject or GLib integration, unlike json-glib, but that should be fine.
 
 
 [.vapi]: https://gitlab.gnome.org/GNOME/vala/-/tree/main/vapi?ref_type=heads
 [json-glib]: https://gitlab.gnome.org/GNOME/json-glib/-/tree/main?ref_type=heads
 [pluie-yaml]: https://github.com/pluie-org/lib-yaml
-[yaml-glib]: https://github.com/rainwoodman/libyaml-glib
-[libyaml-glib]: https://github.com/yaml/libyaml/tree/master
+[libyaml-glib]: https://github.com/rainwoodman/libyaml-glib
+[libyaml]: https://github.com/yaml/libyaml/tree/master
 [glib-yaml]: https://github.com/jimmuhk/glib-yaml
 [yaml-0.1.vapi]: https://gitlab.gnome.org/GNOME/vala-extra-vapis/-/blob/master/yaml-0.1.vapi?ref_type=heads
