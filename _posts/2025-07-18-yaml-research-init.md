@@ -29,7 +29,7 @@ I've started to look into YAML and XML (mainly YAML). I've looked into many diff
 
 ## Pluie yaml
 
-I mentioned [pluie-yaml][pluie-yaml], but this library isn't a C library like [json-glib][json-glib], it's a shared Vala library. The good thing is that the codegen can use pure Vala libraries because Vala libraries have a C ABI; however, the bad part is that this library is not well-maintained. The last activity was 7 years ago.
+I mentioned [pluie-yaml][pluie-yaml], but this library isn't a C library like [json-glib][json-glib], it's a shared Vala library. The good thing is that the codegen can use pure Vala libraries because Vala libraries have a C ABI, however, the bad part is that this library is not well-maintained. The last activity was 7 years ago.
 
 ## Libyaml glib 
 
