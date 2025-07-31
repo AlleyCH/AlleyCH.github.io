@@ -1,25 +1,30 @@
+---
+title: "Challanges"
+date: 2025-07-31T3:30:00-04:00
+categories:
+  - gnome
+tags:
+  - Vala
+---
+
 # Debugging and My Challenges
 
 For the past 2 weeks, I've been debugging the [json module][valajsonmodule.vala]. I hooked up the JSON module into the codebase hierarchy, which means I made [valagsignalmodule.vala][valagsignalmodule.vala] that extended GObject into extending my class, the JSON module. Testing the test case we have called [json.vala][json.vala] crashes the program.
 
 In the beginning, I was having quite the difficulty trying to use gdb and coredumpctl. I kept doing:
 <br>
- 
+
 ```
 ./autogen.sh --enable-debug
 make 
  ```
-<br>
-
 and 
-<br>
-
  ```
 ./configure --enable-debug
 make
  ```
 
-coredumpctl simply wasn't working when I built this way by it not showing the debug symbols that I needed to be able to see the functions that were causing the program to crash, and when I built Vala using GNOME builder's build button, it still didn't work.
+coredumpctl simply wasn't working when I built it this way. It wasn't showing the debug symbols that I needed to be able to see the functions that were causing the program to crash, and when I built Vala using GNOME builder's build button, it still didn't work.
 <br>
 
 Lorenz, my mentor, helped me a lot on this issue. How we were able to fix this was first, I needed to build Vala by doing 
