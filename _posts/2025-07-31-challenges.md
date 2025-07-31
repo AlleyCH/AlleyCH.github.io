@@ -1,5 +1,5 @@
 ---
-title: "Challanges"
+title: "Challenges"
 date: 2025-07-31T3:30:00-04:00
 categories:
   - gnome
