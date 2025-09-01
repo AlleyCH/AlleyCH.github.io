@@ -1,8 +1,8 @@
 ---
 title: "Final Report"
-date: 2025-09-01T6:30:00-04:00
+date: 2025-09-01T9:00:00-04:00
 categories:
-  - 
+  - gnome
 tags:
   - Vala
 ---
