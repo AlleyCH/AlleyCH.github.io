@@ -16,7 +16,7 @@ I still have so much more I want to do, but here is what I've done so far.
 JSON, YAML, and/or XML emitting and parsing integration into Vala's compiler.
 
 # Mentor:
- Lorenz Wildberg
+ I would like to thank [Lorenz Wildberg][Lorenz Wildberg] for being my mentor for this project, as well as the [Vala community][Vala community]. 
 
 # Description:
  The main objective of this project is to integrate direct syntax support for parsing and emitting JSON, XML, and/or YAML formats in Vala. 
@@ -67,7 +67,9 @@ inheriting from Object or JSON.Serializable.
 
 # Links
 * Here is the [JSOM module][Jsonmodule] that has majority of the code.
-* Here are significant commits and merge requests: 
+* Here is the [merge request][merge request]
 
 [Jsonmodule]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/098c51eb28c99d4d9fa4786d84109782fe8cf2c3/codegen/valajsonmodule.vala
-
+[Lorenz Wildberg]: https://mastodon.social/@lw64@chaos.social
+[Vala community]: https://mastodon.social/@vala_lang
+[merge request]:  https://gitlab.gnome.org/GNOME/vala/-/merge_requests/468 
