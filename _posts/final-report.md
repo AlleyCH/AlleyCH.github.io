@@ -1,35 +1,37 @@
 ---
 title: "Final Report"
-date: 
+date: 2025-09-01T6:30:00-04:00
 categories:
-  - gnome
+  - 
 tags:
   - Vala
 ---
 
 # Intro:
-Hi everyone, it's the end of GSoc unfortonatly. I had a great experience throughtout this whole process. I've learned so much. 
-This is basically the 'final report' for GSoC but not my final report in general for this project by a long shot. 
-I still have so much more I want to do, but here is what i've done so far.
+Hi everyone, it's the end of GSoc! I had a great experience throughout this whole process. I've learned so much. 
+This is basically the 'final report' for GSoC, but not my final report in general for this project by a long shot. 
+I still have so much more I want to do, but here is what I've done so far.
 
 # Project:
 JSON, YAML, and/or XML emitting and parsing integration into Vala's compiler.
 
 # Mentor:
-Lorenz
+ Lorenz Wildberg
 
 # Description:
- The main objective of this pproject is to integrate direct syntax support for parsing and emitting JSON, XML, and/or YAML formats in Vala. 
- This will cut back the boilerplate code making it more user-friendly and efficient for developers working with these formatting languages. 
+ The main objective of this project is to integrate direct syntax support for parsing and emitting JSON, XML, and/or YAML formats in Vala. 
+ This will cut back the boilerplate code, making it more user-friendly and efficient for developers working with these formatting languages. 
 
 # What I've done
 ## Research
 * I've done significant research in both JSON and YAML parsing and emitting in various languages like C#, Java, Rust and Python.
-* Looked into how Vala currently handles JSON using JSON GLib classes and I then moduled the C code after the examples.
+* Looked into how Vala currently handles JSON using JSON GLib classes and I then modelled the C code after the examples I collected.
+* modelled the JSON module after other modules in the codegen. Specifically, mainly after Dbus, Gvariant, GObject, and GTK.
 
 ## Custom JSON Overrides and Attribute
-* Created Vala syntaxt sugar specifically making a [JSON] attribute to do serializing.
+* Created Vala syntax sugar specifically making a [JSON] attribute to do serialization.
 * Built support for custom overrides as in mapping JSON keys to differently named fields/properties.
+* Reduced boilerplate by generating C code behind the scenes automatically.
 
 ## Structs
 * I've created both Vala functions to deserialize and serialize structs using JSON boxed functions.
@@ -47,17 +49,23 @@ Lorenz
 
 * I created a Vala generate_gclass_from_json function to create a C code function called "_json_%s_deserialize_class" to deserialize fields.
 
-## Non-Objects
+## Non-GObjects
 * I've done serializing of non GObjects using JSON GLib's builder functions.
 * I then created a Vala function generate_class_to_json to create a C code function called "_json_%s_serialize_myclass" to fully serialize non objects that aren't
-inherenting from Object or JSON.Serializable.
+inheriting from Object or JSON.Serializable.
 
 
-# What needs to be done
-* I want to create more specialized attributes that only do serializing or deserializing. 
-* [JSON] attribute needs to do both deserializing and serializing and at the moment the deserializing code needs to ....
-* 
+# Future Work
+## Research
+* Research still needs to be put into integrating XML and determining which library to use.
+* The integration of YAML and other formatting languages other than JSON, YAML, or XML.
+  
+## Custom Overrides and Attributes
+* I want to create more specialized attributes for JSON that only do serialization or deserialization. Such as [JsonDeserialize] and [JsonSerialize].
+* [JSON] attribute needs to do both deserializing and serializing and at the moment the deserializing code has problems
+* XML and YAML will follow very similar patterns with how attributes are concerned: [Yaml], [Xml], [Json].
 
 # Links
-* [Jsonmodule][Jsonmodule]
+* Here is the [Jsonmodule][Jsonmodule] that has majority of the code.
+* Here are significant commits and merge requests.
 
