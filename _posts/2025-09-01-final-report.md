@@ -62,10 +62,12 @@ inheriting from Object or JSON.Serializable.
   
 ## Custom Overrides and Attributes
 * I want to create more specialized attributes for JSON that only do serialization or deserialization. Such as [JsonDeserialize] and [JsonSerialize].
-* [JSON] attribute needs to do both deserializing and serializing and at the moment the deserializing code has problems
+* [JSON] attribute needs to do both deserializing and serializing, and at the moment, the deserializing code has problems
 * XML and YAML will follow very similar patterns with how attributes are concerned: [Yaml], [Xml], [Json].
 
 # Links
-* Here is the [Jsonmodule][Jsonmodule] that has majority of the code.
-* Here are significant commits and merge requests.
+* Here is the [JSOM module][Jsonmodule] that has majority of the code.
+* Here are significant commits and merge requests: 
+
+[Jsonmodule]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/098c51eb28c99d4d9fa4786d84109782fe8cf2c3/codegen/valajsonmodule.vala
 
