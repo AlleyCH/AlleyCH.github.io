@@ -66,7 +66,7 @@ inheriting from Object or JSON.Serializable.
 * XML and YAML will follow very similar patterns with how attributes are concerned: [Yaml], [Xml], [Json].
 
 # Links
-* Here is the [JSOM module][Jsonmodule] that has majority of the code.
+* Here is the [JSON module][Jsonmodule] that has majority of the code.
 * Here is the [merge request][merge request]
 
 [Jsonmodule]: https://gitlab.gnome.org/AlleyChaggar/vala/-/blob/098c51eb28c99d4d9fa4786d84109782fe8cf2c3/codegen/valajsonmodule.vala
