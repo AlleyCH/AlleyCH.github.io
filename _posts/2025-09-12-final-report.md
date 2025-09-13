@@ -67,7 +67,7 @@ inheriting from Object or Json.Serializable.
 
 ## Bugs
 * unref c code functions are calling nulls, which shouldn't be the cause. They need proper types going through.
-* Deserializing prompts a redefinition that.
+* Deserializing prompts a redefinition that needs to be corrected.
 * Overridden GObject properties need to have setters made to be able to get the values.
 
 # Links
